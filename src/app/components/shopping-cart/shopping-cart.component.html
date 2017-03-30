@@ -1,0 +1,16 @@
+<md-card>
+  <md-card-title>
+    Shopping Cart
+  </md-card-title>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let item of ( cartItems | async)">
+          <img md-list-avatar [src]="item.imgSrc" />
+          <h2 md-line>{{item.itemName}}</h2>
+          <p md-line>{{item.quantity}}</p>
+          <p md-line>{{item.price}}</p>
+          <p md-line>{{item.totalCost}}</p>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

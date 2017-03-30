@@ -6,9 +6,29 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 
+// Import all Components
+import {
+  ItemsGalleryComponent,
+  ShoppingCartComponent,
+  ItemComponent
+} from './components';
+
+// Import all Services
+import {
+  InventoryService,
+  ShoppingCartService
+} from './services';
+import { TitleCasePipe } from './pipes/title-case.pipe';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShoppingCartComponent,
+    ItemsGalleryComponent,
+    ItemComponent,
+    ItemsGalleryComponent,
+    TitleCasePipe
   ],
   imports: [
     BrowserModule,
@@ -16,7 +36,10 @@ import { AppComponent } from './app.component';
     HttpModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    InventoryService,
+    ShoppingCartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

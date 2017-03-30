@@ -1,0 +1,16 @@
+.content{
+    display: flex;
+    flex-direction: row;
+}
+app-items-gallery {
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+app-shopping-cart{
+    width:20%;
+    max-width: 200px;
+    height: auto;
+}
