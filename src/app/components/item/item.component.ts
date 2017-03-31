@@ -14,7 +14,7 @@ export class ItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('init of item:', this.item);
+    // console.log('init of item:', this.item);
   }
 
   addToCart() {
