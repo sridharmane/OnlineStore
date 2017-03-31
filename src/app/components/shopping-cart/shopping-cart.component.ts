@@ -57,7 +57,7 @@ export class ShoppingCartComponent implements OnInit {
   confirmPurchase() {
     this.cartService.confirmPurchase();
   }
-  
+
   /**
    * Removes the items from the cart
    * @param itemName
