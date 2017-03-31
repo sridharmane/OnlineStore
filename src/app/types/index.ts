@@ -1,8 +1,9 @@
-export interface IGalleryItem {
+export interface IStoreItem {
     itemName: string;
     imgSrc: string;
     price: number;
     quantityRemaining: number;
+    // setQuantity: Function;
 }
 
 export interface ICartItem {
@@ -11,4 +12,5 @@ export interface ICartItem {
     price: number;
     quantity: number;
     totalCost: number;
+    quantityRemaining: number;
 }

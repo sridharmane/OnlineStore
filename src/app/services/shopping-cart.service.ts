@@ -7,7 +7,7 @@ export class ShoppingCartService {
   cartItems: ICartItem[] = [];
   constructor() { }
 
-  addItem(item: IGalleryItem) {
+  addItem(item: IStoreItem) {
     // First check if item is already in cart
     console.log('Adding item to Cart', item);
     let alreadyInCart = false;

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ShoppingCartService } from '../../services';
-import { IGalleryItem } from '../../types';
+import { IStoreItem } from '../../types';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -8,7 +8,7 @@ import { IGalleryItem } from '../../types';
 })
 export class ItemComponent implements OnInit {
 
-  @Input('item') item: IGalleryItem;
+  @Input('item') item: IStoreItem;
   constructor(private shoppingCart: ShoppingCartService) {
 
   }

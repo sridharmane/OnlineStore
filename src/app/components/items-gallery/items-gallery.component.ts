@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../../services';
-import { IGalleryItem } from '../../types';
+import { IStoreItem } from '../../types';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./items-gallery.component.scss']
 })
 export class ItemsGalleryComponent implements OnInit {
-  storeItems: Observable<IGalleryItem>;
+  storeItems: Observable<IStoreItem[]>;
   constructor(private inventoryService: InventoryService) {
     this.storeItems = this.inventoryService.storeItems;
   }
