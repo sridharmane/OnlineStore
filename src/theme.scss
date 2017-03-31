@@ -1,14 +1,14 @@
 @import '~@angular/material/core/theming/all-theme';
-@import './components/item/item-theme';
-@mixin online-shopping-theme($theme) {
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-  $warn: map-get($theme, warn);
-  $background: map-get($theme, background);
-  $foreground: map-get($theme, foreground);
+// @import './app/components/item/item-theme';
+// @mixin online-shopping-theme($theme) {
+//   $primary: map-get($theme, primary);
+//   $accent: map-get($theme, accent);
+//   $warn: map-get($theme, warn);
+//   $background: map-get($theme, background);
+//   $foreground: map-get($theme, foreground);
 
-  @include item-theme($theme);
-}
+//   @include item-theme($theme);
+// }
 
 @include mat-core();
 
@@ -17,9 +17,8 @@
 // hue.
 $primary: mat-palette($mat-indigo);
 $accent: mat-palette($mat-orange, A200, A100, A400);
-// The warn palette is optional (defaults to red).
 $warn: mat-palette($mat-red);
 $theme: mat-light-theme($primary, $accent, $warn);
 
-@include online-shopping-theme($theme);
+@include angular-material-theme($theme);
 // @include angular-material-theme($theme);
