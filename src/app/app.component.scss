@@ -1,16 +1,25 @@
-.content{
-    display: flex;
-    flex-direction: row;
+.content {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  height: 100%;
+  width: 100%; 
 }
+
 app-items-gallery {
   display: flex;
-  width: 80%;
+  height: calc(100% + 0px);
+  width: 70%;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 16px;
 }
-app-shopping-cart{
-    width:20%;
-    max-width: 200px;
-    height: auto;
+
+app-shopping-cart {
+  margin-top: 16px;
+  min-width: 200px;
+  max-width: 350px;
+  height: auto;
+  flex: 1 1 auto;
+  margin: 16px;
 }

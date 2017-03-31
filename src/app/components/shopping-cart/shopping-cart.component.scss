@@ -1,0 +1,32 @@
+.shopping-cart {
+  // min-height: 300px;
+  min-width: 300px;
+}
+
+.cart-item {
+  .mat-list-text {
+    order: 2;
+  }
+  button.cart-item-remove {
+    order: 1;
+    
+  }
+}
+
+.quantity-button {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  .mat-button-wrapper {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+  }
+}
+
+md-icon.quantity-button-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 14px;
+  line-height: 16px;
+}
