@@ -1,11 +1,17 @@
 .shopping-cart {
-  // min-height: 300px;
   min-width: 300px;
 }
 
 .cart-item {
+  .text-item-name{
+    font-size: 18px;
+  }
+  .text-small{
+    font-weight: 300;
+  }
   .mat-list-text {
     order: 2;
+    font-weight: 300;
   }
   button.cart-item-remove {
     order: 1;

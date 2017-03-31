@@ -2,8 +2,7 @@
   <md-card-title>{{item.itemName | titleCase}}</md-card-title>
   <img md-card-md-image class="item-image" [src]="item.imgSrc" />
   <div class="item-price" color="accent">${{item.price}}</div>
-  
-  <md-card-subtitle >{{item.quantityRemaining}} In Stock</md-card-subtitle>
+  <md-card-subtitle class="item-quantity-remaining">{{item.quantityRemaining}} In Stock</md-card-subtitle>
   <md-card-actions>
     <button md-button color="primary" [disabled]="item.quantityRemaining < 1" (click)="addToCart()">Add To Cart</button>
   </md-card-actions>

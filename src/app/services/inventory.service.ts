@@ -15,7 +15,9 @@ export class InventoryService {
     this.loadInventory();
   }
 
-
+  /**
+   * Loads the items into the inventory. Currently loads from .json file, can be changed to any datastore
+   */
   loadInventory() {
     console.log('Getting Store Items');
     this.http.get('/assets/store_items.json').map(response => {
@@ -24,15 +26,32 @@ export class InventoryService {
       this.storeItems.next(items);
     });
   }
-  
+
+  /**
+   * Remove item from inventory and update the quantity available
+   * @param itemName
+   * @param quantity
+   */
   removeFromInventory(itemName: string, quantity: number) {
     this.updateInventory(itemName, -quantity);
   }
+
+  /**
+   * Add item from inventory and update the quantity available
+   * @param itemName
+   * @param quantity
+   */
   addToInventory(itemName: string, quantity: number) {
     this.updateInventory(itemName, quantity);
   }
+
+  /**
+   * Updates inventory with the quantity available
+   * @param itemName
+   * @param quantity
+   */
   updateInventory(itemName: string, quantity: number) {
-    let items = this.storeItems.getValue();
+    const items = this.storeItems.getValue();
     for (let i = 0; i < items.length; i++) {
       if (itemName === items[i].itemName) {
         // console.log(`Updaing qunatity from ${items[i].quantityRemaining} with ${quantity}`);

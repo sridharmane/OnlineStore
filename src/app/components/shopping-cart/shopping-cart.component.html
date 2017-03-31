@@ -6,18 +6,14 @@
   <md-card-content>
     <md-list>
       <md-list-item class="cart-item" *ngFor="let item of (cartItems | async)">
-        <!--<img md-list-avatar class="cart-item-image" [src]="item.imgSrc" />-->
-        <h4 md-line>{{item.itemName | titleCase }}</h4>
+        <h4 md-line class="text-item-name">{{item.itemName | titleCase }}</h4>
         <p md-line>
-          <button md-icon-button class="quantity-button" color="primary" (click)="updateQuantity(item.itemName,-1)"
-          [disabled]="item.quantity < 1"
-          ><md-icon class="quantity-button-icon">remove</md-icon></button>          
-          <span color="acccent">{{item.quantity}}</span>
-          <button md-icon-button class="quantity-button" color="primary" (click)="updateQuantity(item.itemName,1)"
-          [disabled]="item.quantity >= item.quantityRemaining"
-          ><md-icon class="quantity-button-icon">add</md-icon></button>{{item.quantity>0?'items':'item'}}
+          <button md-icon-button class="quantity-button" color="primary" (click)="updateQuantity(item.itemName,-1)" [disabled]="item.quantity < 1"><md-icon class="quantity-button-icon">remove</md-icon></button>
+          <span class="text-quantity" >{{item.quantity}}</span>
+          <button md-icon-button class="quantity-button" color="primary" (click)="updateQuantity(item.itemName,1)" [disabled]="item.quantity >= item.quantityRemaining"><md-icon class="quantity-button-icon">add</md-icon></button>
+          <span class="text-small">{{item.quantity===1?' item':' items'}}</span>
         </p>
-        <p md-line>
+        <p md-line class="text-small">
           @ ${{item.price}} each = <b>${{item.totalCost}}</b>
         </p>
         <button md-icon-button class="cart-item-remove" color="warn" (click)="removeItem(item.itemName)"><md-icon>delete</md-icon></button>
@@ -26,10 +22,10 @@
     <md-divider></md-divider>
   </md-card-content>
   <md-card-title align="end">
-    Total: ${{totalCost}}
+    Total: ${{cartTotal}}
   </md-card-title>
   <md-card-actions align="end">
-    <button md-button [disabled]="totalCost === 0" (click)="clearCart()">Clear Cart</button>
-    <button md-raised-button color="primary" [disabled]="totalCost === 0" (click)="confirmPurchase()">Confirm Purchase</button>
+    <button md-button [disabled]="cartTotal === 0" (click)="clearCart()">Clear Cart</button>
+    <button md-raised-button color="primary" [disabled]="cartTotal === 0" (click)="confirmPurchase()">Confirm Purchase</button>
   </md-card-actions>
 </md-card>

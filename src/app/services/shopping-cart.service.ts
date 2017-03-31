@@ -13,7 +13,7 @@ export class ShoppingCartService {
     // First check if item is already in cart
     // console.log('Adding item to Cart', item);
     let alreadyInCart = false;
-    let cartItems = this.cartItems.getValue();
+    const cartItems = this.cartItems.getValue();
     for (let i = 0; i < cartItems.length; i++) {
       const cartItem = cartItems[i];
       if (cartItem.itemName === item.itemName) {
@@ -36,8 +36,12 @@ export class ShoppingCartService {
     return new CartItem(storeItem);
   }
 
+  /**
+   * Remove specific item from the cart and restore its quanitites in the inventory
+   * @param itemName
+   */
   removeItem(itemName: string) {
-    let cartItems = this.cartItems.getValue();
+    const cartItems = this.cartItems.getValue();
     for (let i = 0; i < cartItems.length; i++) {
       if (cartItems[i].itemName === itemName) {
 
@@ -55,6 +59,9 @@ export class ShoppingCartService {
     }
 
   }
+  /**
+   * Iterates through all items in the cart and removes them
+   */
   removeAllItems() {
     this.cartItems.getValue().forEach(item => {
       this.inventory.updateInventory(item.itemName, -item.quantity);
@@ -68,21 +75,22 @@ export class ShoppingCartService {
   }
 
   confirmPurchase() {
-    // We update the inventory every time we make any changes to the cart, so the quantityRemaining of each item is always updated.
-    // Clearing the cart items will be enough here
     this.cartItems.next([]);
   }
 
 }
 
 /**
- * CartItem Calls
+ * CartItem class
+ * Using class here so we can use getter/setter on quanity
  */
 export class CartItem implements ICartItem {
   itemName: string;
   imgSrc: string;
   price: number;
   quantityRemaining: number;
+
+  // Quantity has a getter,setter so we can update totalCost automatically when quantity changes
   _quantity: number;
   get quantity(): number {
     return this._quantity;
@@ -93,6 +101,7 @@ export class CartItem implements ICartItem {
   }
   setQuantity: Function;
   totalCost: number;
+
   constructor(storeItem: IStoreItem) {
     this.itemName = storeItem.itemName ? storeItem.itemName : '';
     this.price = storeItem.price ? storeItem.price : 0;

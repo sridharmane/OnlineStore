@@ -13,12 +13,12 @@ export class ItemComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    // console.log('init of item:', this.item);
-  }
+  ngOnInit() {}
 
+  /**
+   * Add current item to the shopping cart
+   */
   addToCart() {
-    // TODO
     this.shoppingCart.addItem(this.item);
   }
 
